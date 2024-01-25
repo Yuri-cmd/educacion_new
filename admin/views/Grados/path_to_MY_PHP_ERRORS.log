@@ -1,0 +1,5 @@
+[17-Jan-2022 03:18:38 UTC] PHP Notice:  Undefined index: form in /var/www/html/public_html/educacion/admin/views/Grados/V_Detalles.php on line 3
+[17-Jan-2022 03:18:38 UTC] PHP Notice:  Undefined index: granom in /var/www/html/public_html/educacion/admin/views/Grados/V_Detalles.php on line 4
+[17-Jan-2022 03:18:38 UTC] PHP Notice:  Undefined index: graid in /var/www/html/public_html/educacion/admin/views/Grados/V_Detalles.php on line 7
+[17-Jan-2022 03:18:38 UTC] PHP Notice:  Undefined index: granom in /var/www/html/public_html/educacion/admin/views/Grados/V_Detalles.php on line 8
+[17-Jan-2022 03:18:38 UTC] PHP Notice:  Undefined index: nilnom in /var/www/html/public_html/educacion/admin/views/Grados/V_Detalles.php on line 9

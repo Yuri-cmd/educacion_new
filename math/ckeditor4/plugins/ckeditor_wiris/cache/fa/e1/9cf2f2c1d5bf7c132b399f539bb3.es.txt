@@ -1,0 +1,1 @@
+{"result":{"text":"x igual fracción numerador menos b más-menos raíz cuadrada de b al cuadrado menos 4 a c fin raíz s d f entre denominador 2 a fin fracción"},"status":"ok"}

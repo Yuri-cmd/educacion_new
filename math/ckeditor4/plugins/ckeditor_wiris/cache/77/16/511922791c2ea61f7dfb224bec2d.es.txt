@@ -1,0 +1,1 @@
+{"result":{"text":"x igual paréntesis izquierdo menos b más-menos √ paréntesis izquierdo b al cuadrado menos 4 a c paréntesis derecho paréntesis derecho dividido por 2 a"},"status":"ok"}

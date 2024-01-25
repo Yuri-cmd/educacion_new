@@ -1,0 +1,9 @@
+[06-Oct-2021 20:16:25 UTC] PHP Notice:  Undefined index: bsecc in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 27
+[06-Oct-2021 20:16:25 UTC] PHP Notice:  Undefined index: bseccnom in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 28
+[06-Oct-2021 20:16:25 UTC] PHP Notice:  Undefined index: bsecccnt in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 29
+[06-Oct-2021 20:16:25 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 127
+[17-Jan-2022 03:16:50 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 126
+[05-Feb-2022 07:16:15 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 126
+[05-Feb-2022 08:06:47 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 126
+[06-Mar-2022 05:03:07 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 126
+[17-Jun-2022 04:55:00 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Seccion/Seccion.php on line 126

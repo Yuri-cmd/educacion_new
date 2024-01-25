@@ -1,0 +1,11 @@
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined index: file in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 15
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Trying to access array offset on value of type null in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 15
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined index: file in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 16
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Trying to access array offset on value of type null in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 16
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined index: file in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 17
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Trying to access array offset on value of type null in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 17
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined index: file in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 18
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Trying to access array offset on value of type null in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 18
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined index: extension in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 19
+[03-Jan-2022 02:14:00 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 59
+[03-Jan-2022 02:14:00 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Institucion/Institucion.php on line 84

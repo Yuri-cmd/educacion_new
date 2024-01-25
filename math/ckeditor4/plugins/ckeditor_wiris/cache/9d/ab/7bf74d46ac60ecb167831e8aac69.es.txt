@@ -1,0 +1,1 @@
+{"result":{"text":"22 paréntesis izquierdo x subíndice 2 abrir paréntesis g cerrar paréntesis"},"status":"ok"}

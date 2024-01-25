@@ -1,0 +1,38 @@
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 53%;
+    position: relative;
+
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #049230;
+    border-color: #059331 transparent #059331 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#loader-menor{
+    position:absolute;/*agregamos una posición absoluta para que nos permita mover la capa en el espacio del navegador*/
+    top:0;/*posicionamiento en Y */
+    left:0;/*pocisionamiento en X*/
+    z-index:9999; /* Le asignamos la pocisión más alta en el DOM */
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #ffffff45;
+}

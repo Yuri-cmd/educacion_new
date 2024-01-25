@@ -1,0 +1,4 @@
+.idea
+admin/functions/BD.php
+profesor/functions/BD.php
+funcionalidades/config/Conexion.php

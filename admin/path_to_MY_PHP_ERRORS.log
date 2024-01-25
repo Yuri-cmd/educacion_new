@@ -1,0 +1,6 @@
+[16-Jan-2024 17:52:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\laragon\www\educacion\admin\functions\BD.php:2
+Stack trace:
+#0 C:\laragon\www\educacion\admin\functions\BD.php(2): mysqli_connect('localhost', 'root', 'c4p1cu4%', 'bd_educacion')
+#1 C:\laragon\www\educacion\admin\index.php(5): include('C:\\laragon\\www\\...')
+#2 {main}
+  thrown in C:\laragon\www\educacion\admin\functions\BD.php on line 2

@@ -1,0 +1,5 @@
+[12-Jan-2022 14:46:22 UTC] PHP Warning:  unlink(../../../images/Institucion/Cursos/CURSOS ACADEMIA 2022_12.jpeg): No such file or directory in /var/www/html/public_html/educacion/admin/functions/Nivel/Nivel.php on line 130
+[17-Jan-2022 03:16:07 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Nivel/Nivel.php on line 230
+[05-Feb-2022 07:50:53 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Nivel/Nivel.php on line 230
+[17-Jun-2022 04:47:23 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Nivel/Nivel.php on line 230
+[17-Jun-2022 05:12:27 UTC] PHP Notice:  Undefined variable: data in /var/www/html/public_html/educacion/admin/functions/Nivel/Nivel.php on line 230

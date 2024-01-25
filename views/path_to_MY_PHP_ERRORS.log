@@ -1,0 +1,20 @@
+[21-Jul-2022 16:53:15 UTC] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /var/www/html/public_html/educacion/views/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/public_html/educacion/views/index.php on line 16
+[21-Jul-2022 16:55:08 UTC] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /var/www/html/public_html/educacion/views/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/public_html/educacion/views/index.php on line 16
+[21-Jul-2022 16:55:56 UTC] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /var/www/html/public_html/educacion/views/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/public_html/educacion/views/index.php on line 16
+[21-Jul-2022 16:55:59 UTC] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /var/www/html/public_html/educacion/views/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/public_html/educacion/views/index.php on line 16
+[21-Jul-2022 16:57:50 UTC] PHP Fatal error:  Uncaught Error: Class 'URL' not found in /var/www/html/public_html/educacion/views/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/public_html/educacion/views/index.php on line 16
