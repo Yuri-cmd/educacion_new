@@ -34,3 +34,6 @@ Route::addRuta("ajax/udt/estu/matr","funcionalidades/ajax/ajs_consultas.php");
 
 Route::addRuta("ajax/abm/almun/usdalu","funcionalidades/ajax/ajs_consultas.php");
 Route::addRuta("ajax/adm/alumn/resetusd","funcionalidades/ajax/ajs_consultas.php");
+
+Route::addRuta("ajax/consulta_doc", "funcionalidades/ajax/ajs_matricula.php");
+Route::addRuta("ajax/consulta/sn", "funcionalidades/ajax/ajs_matricula.php");

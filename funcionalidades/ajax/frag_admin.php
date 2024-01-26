@@ -34,8 +34,12 @@ switch ($frag){
         $id_nivel = $_POST['nvl'];
         $sql="SELECT * FROM dir_departamento;";
         $list_dep = $conexion->query($sql);
+
+        $sqlMP = "SELECT * FROM metodo_pago";
+        $metodos_pagos = $conexion->query($sqlMP);
+
         echo $view->render("funcionalidades/fragment/admin/form_registro.php",
-            ['nivel_id'=>$_POST['nvl'],"listas_dep"=>$list_dep]);
+            ['nivel_id'=>$_POST['nvl'],"listas_dep"=>$list_dep,"metodos_pagos"=>$metodos_pagos]);
         break;
 
     case 'from-matr-edt':

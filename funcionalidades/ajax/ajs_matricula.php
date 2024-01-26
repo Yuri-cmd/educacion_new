@@ -18,8 +18,11 @@ $padreApoderadoAcces= new PadreApoderadoAcces();
 $perfilAcces= new PerfilAcces();
 $views = new View();
 
+$conexion = (new Conexion())->getConexion();
+
 $tipo = $_POST['tipo'];
 $respuesta= ["res"=>false];
+$flag = true;
 switch ($tipo){
     case 'paso_veri':
         $listaHijos = json_decode($_POST['hijos'],true);
@@ -305,7 +308,39 @@ VALUES (NULL,
 
 
         break;
+    case 'get_datos_doc':
+        $documento = $_POST['doc'];
+        $tipo = strlen($documento) > 8 ? 'ruc' :  'dni';    
+        $token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN5c3RlbWNyYWZ0LnBlQGdtYWlsLmNvbSJ9.yuNS5hRaC0hCwymX_PjXRoSZJWLNNBeOdlLRSUGlHGA";
+
+        $url = "https://dniruc.apisperu.com/api/v1/{$tipo}/{$documento}?token={$token}";
+
+        try {
+            $response = file_get_contents($url);
+            if ($response === false) {
+                throw new Exception("Hubo un error al obtener la información.");
+            }
+            $flag = false;
+            echo $response;
+        } catch (Exception $e) {
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
+        break;
+
+    case 'sn':
+        $doc = $_POST['doc'];
+        $sql = "select * from documentos_empresas where id_empresa='12' and id_tido='$doc' and sucursal='1'";
+        $resp = $conexion->query($sql);
+        
+        $result = ["serie" => "", "numero" => "",];
+        if ($row = $resp->fetch_assoc()) {
+            $respuesta['serie'] = $row["serie"];
+            $respuesta["numero"] = $row["numero"];
+        }
+
+        break;
 }
 
-
-echo  json_encode($respuesta);
+if($flag){
+    echo  json_encode($respuesta);
+}
