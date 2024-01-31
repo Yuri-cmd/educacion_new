@@ -10,6 +10,7 @@ Route::addRuta("ajax/clasecurso","funcionalidades/ajax/ajs_clase_curso.php");
 Route::addRuta("ajax/actividadcurso","funcionalidades/ajax/ajs_actividad_curso.php");
 
 Route::addRuta("ajax/buscarusuario","funcionalidades/ajax/ajs_buacr_usuario.php");
+Route::addRuta("ajax/mensajeria","funcionalidades/ajax/ajs_mensajeria.php");
 
 Route::addRuta("ajax/mensaje","funcionalidades/ajax/ajs_mensajes.php");
 Route::addRuta("ajax/adm_frag","funcionalidades/ajax/frag_admin.php");

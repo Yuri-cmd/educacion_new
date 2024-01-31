@@ -13,6 +13,7 @@ if ($row_s = $conexion->query($sql)->fetch_assoc()){
 <div class="row">
     <div class="col-md-3">
         <button data-toggle="modal" data-target="#modal-mensaje"  class="btn btn-success btn-block margin-bottom"><i class="fa fa-plus"></i> Nueva Noticación</button>
+        <button class="btn btn-success btn-block margin-bottom modal-grupo"><i class="fa fa-plus"></i> Nueva Grupo</button>
 
         <div class="box box-solid">
             <div class="box-header with-border">
@@ -42,7 +43,7 @@ if ($row_s = $conexion->query($sql)->fetch_assoc()){
 
 </div>
 
-<div style="" class="modal fade" id="modal-mensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-mensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -75,11 +76,54 @@ if ($row_s = $conexion->query($sql)->fetch_assoc()){
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-grupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Grupos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="nameGroup">Nombre del grupo:</label>
+                    <input type="text" id="nameGroup"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="curso">Curso:</label>
+                    <select name="curso" id="curso" class="form-control">
+                        <option value="">Seleccionar curso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alumnos">Alumonos:</label>
+                    <select name="alumnos" id="alumnos" class="form-control">
+                        <option value="">Seleccionar Alumno</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="enviarMensaje()" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
 <style>
     #ui-id-1{
         z-index: 1065;
     }
 </style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <script>
     function  enviarMensaje(){
         if ($("#usuario_send").val().length>0){
@@ -167,4 +211,52 @@ if ($row_s = $conexion->query($sql)->fetch_assoc()){
         });
 
     }
+
+    $(".modal-grupo").on('click', function (param) { 
+        let idUsuario = `<?php echo $usuario?>`;
+        $('#modal-grupo').modal('show');
+        $.ajax({
+            type: "POST",
+            url: URL+"/ajax/mensajeria",
+            data:{idUsuario: idUsuario, opcion: 'getCursosDocente'},
+            success: function (resp) {
+                var data = JSON.parse(resp);
+                var selectCursos = document.getElementById('curso');
+
+                // Limpiar las opciones existentes (excepto la primera opción "Seleccionar curso")
+                selectCursos.innerHTML = '<option value="">Seleccionar curso</option>';
+
+                data.forEach(function(curso) {
+                    var option = document.createElement('option');
+                    option.value = `${curso.curso_id}:${curso.grado}:${curso.nivel}:${curso.seccion}`; // Valor de la opción
+                    option.textContent = curso.nombre; // Texto visible de la opción
+                    selectCursos.appendChild(option);
+                });
+            }
+        });
+    });
+
+    $('#curso').on('change', function() {
+        var selectedCursoId = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: URL+"/ajax/mensajeria",
+            data:{inf: selectedCursoId, opcion: 'getAlumnos'},
+                success: function (resp) {
+                    var data = JSON.parse(resp);
+                    var selectAlumnos = document.getElementById('alumnos');
+
+                    // Limpiar las opciones existentes (excepto la primera opción "Seleccionar curso")
+                    selectAlumnos.innerHTML = '<option value="">Seleccionar Alumnos</option>';
+
+                    data.forEach(function(alumno) {
+                        var option = document.createElement('option');
+                        option.value = alumno.id_estudiante; // Valor de la opción
+                        option.textContent = alumno.alumno; // Texto visible de la opción
+                        selectAlumnos.appendChild(option);
+                    });
+                }
+        });
+    });
+
 </script>

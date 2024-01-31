@@ -127,6 +127,14 @@
                 </ul>
             </li>
             <li>
+                <a href="http://localhost/kanako/" target="_blank">
+                    <i class="fa fa-money"></i> <span>Factura</span>
+                    <span class="pull-right-container">
+             <i class="fa fa-angle-left pull-right"></i>
+           </span>
+                </a>
+            </li>
+            <li>
                 <a href="<?=URL::to('auth/logout.php')?>">
                     <i class="fa fa-sign-out"></i> <span>Salir</span>
                     <span class="pull-right-container">
