@@ -8,7 +8,7 @@ $conexion = (new Conexion())->getConexion();
 
 $frag = $_POST['part'];
 
-switch ($frag){
+switch ($frag) {
     case 'libreta_nota_curso':
 
         include "funcionalidades/fragment/padre/libreta_nota_curso.php";
@@ -19,7 +19,7 @@ switch ($frag){
         include "funcionalidades/fragment/padre/libreta_nota.php";
         break;
     case 'hijos':
-        $sql ="SELECT 
+        $sql = "SELECT 
   estu.* 
 FROM
   estudiante_contacto AS est_cont 
@@ -33,9 +33,12 @@ WHERE est_cont.id_contacto = '{$_SESSION['usuario_padre_apoderado']}' AND estu.p
     case 'bandeja_entrada':
         include "funcionalidades/fragment/partes/bandeja_entrada.php";
         break;
+    case 'bandeja_enviados':
+        include "funcionalidades/fragment/partes/bandeja_enviado.php";
+        break;
     case 'mensaje_fro':
         $mensaje_cod = $_POST['codmens'];
-        $sql ="UPDATE mensaje_usuarion
+        $sql = "UPDATE mensaje_usuarion
 SET 
   estado = '1'
 WHERE mensaje_id = '$mensaje_cod';";

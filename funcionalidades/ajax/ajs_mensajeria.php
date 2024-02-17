@@ -3,11 +3,11 @@ session_start();
 require_once "funcionalidades/config/Conexion.php";
 
 $conexion = (new Conexion())->getConexion();
-
-switch($_POST['opcion']){
+$lista = [];
+switch ($_POST['opcion']) {
     case 'getCursosDocente':
-        $lista = []; 
-        $sql =" SELECT
+
+        $sql = " SELECT
            	c.nombre,
             cd.grado,
             cd.nivel,
@@ -23,15 +23,14 @@ switch($_POST['opcion']){
             d.id_usuario = '{$_POST['idUsuario']}' 
             AND estatus = 1";
         $cursos = $conexion->query($sql);
-        foreach ($cursos as $row){
+        foreach ($cursos as $row) {
             $lista[] = $row;
         }
         echo json_encode($lista);
-    break;
+        break;
     case 'getAlumnos':
-        $lista = []; 
         $inf = explode(':', $_POST['inf']);
-        $sql =" SELECT
+        $sql = " SELECT
         CONCAT_WS(' ', p.primer_nombre, p.segundo_nombre, p.apellido_paterno, p.apellido_materno) as alumno,
         e.estu_id
     FROM
@@ -44,9 +43,62 @@ switch($_POST['opcion']){
         AND m.seccion = {$inf[3]} 
         and m.estado = 1";
         $alumnos = $conexion->query($sql);
-        foreach ($alumnos as $row){
+        foreach ($alumnos as $row) {
             $lista[] = $row;
         }
         echo json_encode($lista);
-    break;
+        break;
+    case 'saveGrupo':
+        try {
+            $alumnosIds = explode(',', $_POST['alumnosIds']);
+            $curso =  explode(':', $_POST['curso'])[0];
+            $nombre = $_POST['nameGroup'];
+            $docente_id =  $_POST['profesor'];
+            $sql = "INSERT INTO mensajeria_grupo
+            (nombre,
+            curso_id,docente_id)
+            VALUES ('$nombre','$curso','$docente_id');";
+            $stmt = $conexion->query($sql);
+            $grupo_id = $conexion->insert_id;
+
+            foreach ($alumnosIds as $id) :
+                $sql = "INSERT INTO mensajeria_grupo_alumno
+                (grupo_id,
+                alumno_id)
+                VALUES ('$grupo_id','$id');";
+                $stmt = $conexion->query($sql);
+            endforeach;
+        } catch (\Throwable $th) {
+            echo 'error';
+        }
+        break;
+    case 'getGrupos':
+        $docente_id =  $_POST['docente'];
+        $sql = "SELECT id, nombre FROM mensajeria_grupo WHERE docente_id = $docente_id";
+        $alumnos = $conexion->query($sql);
+        foreach ($alumnos as $row) {
+            $lista[] = $row;
+        }
+        echo json_encode($lista);
+        break;
+    case 'saveRespuesta':
+
+        $sql = "INSERT INTO mensajeria_respuestas
+        (id_usuario,
+        id_mensaje,respuesta, creado_el)
+        VALUES ('{$_POST['idUsuario']}',
+        '{$_POST['idmensaje']}',
+        ?,
+        now());";
+
+        $stmt = $conexion->query($sql);
+        $stmt = $conexion->prepare($sql);
+        $mensaje = $_POST['respuesta'];
+        $stmt->bind_param("s", $mensaje);
+        if ($stmt->execute()) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+        break;
 }
