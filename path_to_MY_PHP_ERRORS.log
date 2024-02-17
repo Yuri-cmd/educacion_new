@@ -1853,3 +1853,9 @@ Stack trace:
 #2 C:\laragon\www\educacion\index.php(4): require_once('C:\\laragon\\www\\...')
 #3 {main}
   thrown in C:\laragon\www\educacion\app\Route.php on line 18
+[17-Feb-2024 14:01:09 America/Lima] PHP Warning:  require(qrlib.php): failed to open stream: No such file or directory in C:\laragon\www\educacion\funcionalidades\fragment\nav_bar_aside_alumnos.php on line 2
+[17-Feb-2024 14:01:09 America/Lima] PHP Fatal error:  require(): Failed opening required 'qrlib.php' (include_path='.;C:/laragon/etc/php/pear') in C:\laragon\www\educacion\funcionalidades\fragment\nav_bar_aside_alumnos.php on line 2
+[17-Feb-2024 14:01:51 America/Lima] PHP Notice:  Trying to access array offset on value of type null in C:\laragon\www\educacion\modulos\alumnos\dashboard.php on line 186
+[17-Feb-2024 14:02:40 America/Lima] PHP Notice:  Trying to access array offset on value of type null in C:\laragon\www\educacion\modulos\alumnos\dashboard.php on line 186
+[17-Feb-2024 14:03:45 America/Lima] PHP Notice:  Trying to access array offset on value of type null in C:\laragon\www\educacion\modulos\alumnos\dashboard.php on line 186
+[17-Feb-2024 14:04:32 America/Lima] PHP Notice:  Trying to access array offset on value of type null in C:\laragon\www\educacion\modulos\alumnos\dashboard.php on line 186

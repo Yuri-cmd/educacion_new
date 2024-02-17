@@ -1,3 +1,17 @@
+<?php
+require 'utils/phpqrcode/qrlib.php'; 
+
+// Configura los parámetros del código QR
+$tamaño = 10; // Tamaño del código QR (en píxeles)
+$level = 'M'; // Nivel de corrección de errores (L - bajo, M - medio, Q - alto, H - más alto)
+
+// Genera el código QR
+ob_start(); // Inicia el almacenamiento en el búfer de salida
+QRcode::png($_SESSION['estudiante_id'], null, $level, $tamaño); // Genera el código QR y lo envía al búfer de salida
+$imageData = ob_get_clean(); // Obtiene el contenido del búfer de salida y lo limpia
+
+?>
+
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar" style="height: auto;">
@@ -22,7 +36,9 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="<?= URL::to('alumno/mensajes') ?>"><?php var_dump($_SESSION); ?></a>
+                        <a href="<?= URL::to('alumno/mensajes') ?>">
+                            <?= '<img src="data:image/png;base64,' . base64_encode($imageData) . '" style="width: 100%;" alt="Código QR">'; ?>
+                        </a>
                     </li>
                 </ul>
             </li>
