@@ -2,6 +2,36 @@
 
 All notable changes to `ray` will be documented in this file
 
+## 1.41.0 - 2024-01-24
+
+### What's Changed
+
+* Allow symfony 7.x by @thecaliskan in https://github.com/spatie/ray/pull/881
+* docs(app): docker add step to open gateway for remote by @ValentinGaudin in https://github.com/spatie/ray/pull/882
+* Add rector rule to remove ray calls from a codebase by @timvandijck in https://github.com/spatie/ray/pull/884
+* Bump actions/cache from 3 to 4 by @dependabot in https://github.com/spatie/ray/pull/888
+
+### New Contributors
+
+* @thecaliskan made their first contribution in https://github.com/spatie/ray/pull/881
+* @ValentinGaudin made their first contribution in https://github.com/spatie/ray/pull/882
+
+**Full Changelog**: https://github.com/spatie/ray/compare/1.40.1...1.41.0
+
+## 1.40.1 - 2023-11-20
+
+### What's Changed
+
+- Add showDuplicateQueries() to reference page by @AndreasHerss in https://github.com/spatie/ray/pull/865
+- Implement cURL Handle Caching by @JSlush611 in https://github.com/spatie/ray/pull/864
+
+### New Contributors
+
+- @AndreasHerss made their first contribution in https://github.com/spatie/ray/pull/865
+- @JSlush611 made their first contribution in https://github.com/spatie/ray/pull/864
+
+**Full Changelog**: https://github.com/spatie/ray/compare/1.40.0...1.40.1
+
 ## 1.40.0 - 2023-11-07
 
 ### What's Changed

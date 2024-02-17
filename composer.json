@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "spatie/laravel-ray": "^1.33"
+    },
+    "require": {
+        "bacon/bacon-qr-code": "^2.0"
     }
 }
