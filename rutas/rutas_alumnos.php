@@ -19,3 +19,5 @@ Route::addRuta("alumno/dibujo/:actividad_id", "modulos/alumnos/dibujo_paint.php"
 Route::addRuta("alumno/rompecabeza/:actividad", "modulos/alumnos/rompecaveza.php");
 
 Route::addRuta("alumno/mensajes", 'modulos/alumnos/mensaje.php');
+
+Route::addRuta("alumno/asistencia", "modulos/alumnos/asistencia.php");

@@ -38,3 +38,6 @@ Route::addRuta("ajax/adm/alumn/resetusd","funcionalidades/ajax/ajs_consultas.php
 
 Route::addRuta("ajax/consulta_doc", "funcionalidades/ajax/ajs_matricula.php");
 Route::addRuta("ajax/consulta/sn", "funcionalidades/ajax/ajs_matricula.php");
+
+Route::addRuta("ajax/save_asistencia", "funcionalidades/ajax/ajs_asistencia_estudiante.php");
+Route::addRuta("ajax/get_asistencia", "funcionalidades/ajax/ajs_asistencia_estudiante.php");

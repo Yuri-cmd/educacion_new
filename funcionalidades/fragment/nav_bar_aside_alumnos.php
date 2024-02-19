@@ -36,7 +36,7 @@ $imageData = ob_get_clean(); // Obtiene el contenido del búfer de salida y lo l
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a href="<?= URL::to('alumno/mensajes') ?>">
+                        <a href="#" onclick="abrirModal()">
                             <?= '<img src="data:image/png;base64,' . base64_encode($imageData) . '" style="width: 100%;" alt="Código QR">'; ?>
                         </a>
                     </li>
@@ -84,7 +84,11 @@ $imageData = ob_get_clean(); // Obtiene el contenido del búfer de salida y lo l
                     <i class="fa fa-money"></i> <span>Profesores</span>
                 </a>
             </li>
-
+            <li>
+                <a href="<?= URL::to('alumno/asistencia') ?>">
+                    <i class="fa fa-money"></i> <span>Mi Asistencia</span>
+                </a>
+            </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-user-plus"></i> <span>Mis Medios</span>
@@ -125,3 +129,39 @@ $imageData = ob_get_clean(); // Obtiene el contenido del búfer de salida y lo l
     </section>
     <!-- /.sidebar -->
 </aside>
+<!-- Modal -->
+<div id="qrModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Código QR <?php var_dump($_SESSION['estudiante_id'])?></h4>
+      </div>
+      <div class="modal-body">
+          <?= '<img id="qrImage" src="data:image/png;base64,' . base64_encode($imageData) . '" style="width: 100%;" alt="Código QR">'; ?>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="imprimirQR()">Imprimir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function abrirModal() {
+        $('#qrModal').modal('show');
+    }
+    function imprimirQR() {
+        // Calcula el centro de la pantalla
+        var left = (screen.width / 2) - (400 / 2);
+        var top = (screen.height / 2) - (400 / 2);
+
+        // Crea una ventana emergente con la imagen del código QR
+        var ventanaQR = window.open('', '_blank', 'width=400,height=400,left=' + left + ',top=' + top);
+        ventanaQR.document.write('<img src="data:image/png;base64,' + '<?= base64_encode($imageData) ?>' + '">');
+        // Imprime la ventana emergente
+        ventanaQR.print();
+    }
+</script>
