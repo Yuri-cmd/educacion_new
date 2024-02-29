@@ -13,3 +13,5 @@ Route::addRuta("supervisor/noticias","modulos/padre_familia/noticias.php");
 Route::addRuta("supervisor/profesores","modulos/padre_familia/profesores.php");
 Route::addRuta("supervisor/familiar","modulos/padre_familia/familiare_encar.php");
 Route::addRuta("supervisor/post/:id_post","modulos/padre_familia/view_post.php");
+
+Route::addRuta("supervisor/asistencia", "modulos/padre_familia/asistencia.php");

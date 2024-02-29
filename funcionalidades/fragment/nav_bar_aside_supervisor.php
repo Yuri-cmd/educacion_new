@@ -47,6 +47,11 @@
                 </ul>
             </li>
             <li>
+                <a href="<?= URL::to('supervisor/asistencia') ?>">
+                    <i class="fa fa-money"></i> <span>Mi Asistencia</span>
+                </a>
+            </li>
+            <li>
                 <a href="<?=URL::to('supervisor/matriculas')?>">
                     <i class="fa fa-cog"></i> MATRICULA
                 </a>
