@@ -19,13 +19,14 @@ switch ($frag) {
         include "funcionalidades/fragment/padre/libreta_nota.php";
         break;
     case 'hijos':
+        $ano_actual = date("Y");
         $sql = "SELECT 
   estu.* 
 FROM
   estudiante_contacto AS est_cont 
   INNER JOIN view_estudiantes_matriculados AS estu 
     ON est_cont.id_estuddiante = estu.estu_id 
-WHERE est_cont.id_contacto = '{$_SESSION['usuario_padre_apoderado']}' AND estu.periodo = '2021'";
+WHERE est_cont.id_contacto = '{$_SESSION['usuario_padre_apoderado']}' AND estu.periodo = '$ano_actual'";
 
         $lista_hijos = $conexion->query($sql);
         include "funcionalidades/fragment/padre/hijos.php";
