@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +20,10 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../assets2/dist/css/skins/skin-green.css">
   <!-- alert toast -->
-   <link href="../assets2/bower_components/toast/toastr.css" rel="stylesheet" type="text/css" />
+  <link href="../assets2/bower_components/toast/toastr.css" rel="stylesheet" type="text/css" />
   <!-- inputfile -->
-   <link href="../assets2/bower_components/inputfile/bootstrap-iso.css" rel="stylesheet" />
-   <!-- Select2 -->
+  <link href="../assets2/bower_components/inputfile/bootstrap-iso.css" rel="stylesheet" />
+  <!-- Select2 -->
   <link rel="stylesheet" href="../assets2/bower_components/select2/select2.min.css">
   <!-- Date Picker -->
   <link rel="stylesheet" href="../assets2/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
@@ -44,6 +45,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="dist/css/italic.css">
 </head>
+
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
@@ -66,9 +68,9 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
 
-            <a href="#M_Perfil" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-gears"></i><span class="hidden-xs"><?='Administrador';?></span>
-            </a>
+              <a href="#M_Perfil" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-gears"></i><span class="hidden-xs"><?= 'Administrador'; ?></span>
+              </a>
             </li>
           </ul>
         </div>
@@ -80,85 +82,86 @@
       <section class="sidebar">
         <!-- /.search form -->
         <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../assets2/dist/img/avatar5.png" class="img-circle" alt="User Image">
+          <div class="pull-left image">
+            <img src="../assets2/dist/img/avatar5.png" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Administrador</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
         </div>
-        <div class="pull-left info">
-          <p>Administrador</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-       <li class="header" style="color:white;">Menu de Navegaci&oacute;n</li>
-       <li>
-         <a href="index.php">
-           <i class="fa fa-dashboard"></i> <span>Inicio</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-       </li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-building-o"></i> <span>Instituci&oacute;n</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="index.php?menu=1"><i class="fa fa-bars"></i>Datos B&aacute;sicos</a></li>
-           <li><a  href="index.php?menu=3"><i class="fa fa-image"></i>Galeria</a></li>
-           <li><a  href="index.php?menu=5"><i class="fa fa-edit"></i>Noticias</a></li>
-          </ul>
-       </li>
-      <li class="treeview">
-         <a href="#">
-           <i class="fa fa-envelope-open-o"></i> <span>Notificaciones</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-            <li><a  href="mensajes"><i class="fa fa-bars"></i>Inbox</a></li>
-          </ul>
-       </li>
-       <li>
-         <a href="index.php?menu=6">
-           <i class="fa fa-money"></i> <span>Pagos</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-       </li>
-       <li class="header" style="color:white;">Informaci&oacute;n Acad&eacute;mica</li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-folder-open"></i> <span>Niveles Acad&eacute;micos</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="index.php?menu=2"><i class="fa fa-bars"></i>Niveles / Grados</a></li>
-           <li><a  href="index.php?menu=9"><i class="fa fa-bars"></i>Grados / Cursos</a></li>
-           <li><a  href="index.php?menu=7"><i class="fa fa-bars"></i>Grados / Secciones</a></li>
+          <li class="header" style="color:white;">Menu de Navegaci&oacute;n</li>
+          <li>
+            <a href="index.php">
+              <i class="fa fa-dashboard"></i> <span>Inicio</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-building-o"></i> <span>Instituci&oacute;n</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=1"><i class="fa fa-bars"></i>Datos B&aacute;sicos</a></li>
+              <li><a href="index.php?menu=3"><i class="fa fa-image"></i>Galeria</a></li>
+              <li><a href="index.php?menu=5"><i class="fa fa-edit"></i>Noticias</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-envelope-open-o"></i> <span>Notificaciones</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="mensajes"><i class="fa fa-bars"></i>Inbox</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="index.php?menu=6">
+              <i class="fa fa-money"></i> <span>Pagos</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li class="header" style="color:white;">Informaci&oacute;n Acad&eacute;mica</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-folder-open"></i> <span>Niveles Acad&eacute;micos</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=2"><i class="fa fa-bars"></i>Niveles / Grados</a></li>
+              <li><a href="index.php?menu=9"><i class="fa fa-bars"></i>Grados / Cursos</a></li>
+              <li><a href="index.php?menu=7"><i class="fa fa-bars"></i>Grados / Secciones</a></li>
 
-         </ul>
-       </li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-group"></i> <span>Profesores</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="index.php?menu=10"><i class="fa fa-vcard-o"> </i> Agregar / Listar</a></li>
-           <!--<li><a  href="index.php?menu="><i class="fa fa-calendar"></i> Horarios </a></li>-->
-         </ul>
-       </li>
-       <!--<li class="treeview">
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-group"></i> <span>Profesores</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=10"><i class="fa fa-vcard-o"> </i> Agregar / Listar</a></li>
+              <!--<li><a  href="index.php?menu="><i class="fa fa-calendar"></i> Horarios </a></li>-->
+            </ul>
+          </li>
+
+          <!--<li class="treeview">
          <a href="#">
            <i class="fa fa-user-plus"></i> <span>Alumnos</span>
            <span class="pull-right-container">
@@ -169,50 +172,58 @@
            <li><a  href="index.php?menu="><i class="fa fa-vcard-o"></i>Agregar / Asignar</a></li>
          </ul>
        </li>--->
-       <li class="header" style="color:white;">Procedimientos Administrativos</li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-address-card-o"></i> <span>Matricula</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="index.php?menu=8"><i class="fa fa-vcard-o"></i>Apertura / Cierre</a></li>
-           <li><a  href="matriculas"><i class="fa fa-tasks"></i>Nuevos Ingresos</a></li>
-           <!--<li><a  href="index.php?menu="><i class="fa fa-tasks"></i>Retiro de Alumno</a></li>-->
-         </ul>
-       </li>
-       <li class="header" style="color:white;">Informaci&oacute;n de Usuarios</li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-cogs"></i> <span>Configuraci&oacute;n</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a href="index.php?menu=11"><i class="fa fa-cog"></i> Usuarios</a></li>
-           <li><a href="#M_Perfil" data-toggle="modal"><i class="fa fa-user"></i> Pefil</a></li>
-         </ul>
-       </li>
-       <li>
-                <a href="http://localhost/kanako/" target="_blank">
-                    <i class="fa fa-money"></i> <span>Factura</span>
-                    <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-                </a>
-            </li>
-       <li>
-         <a href="../auth/logout.php">
-           <i class="fa fa-sign-out"></i> <span>Salir</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-       </li>
-     </ul>
+          <li class="header" style="color:white;">Procedimientos Administrativos</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-address-card-o"></i> <span>Matricula</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=8"><i class="fa fa-vcard-o"></i>Apertura / Cierre</a></li>
+              <li><a href="matriculas"><i class="fa fa-tasks"></i>Nuevos Ingresos</a></li>
+              <!--<li><a  href="index.php?menu="><i class="fa fa-tasks"></i>Retiro de Alumno</a></li>-->
+            </ul>
+          </li>
+          <li>
+            <a href="asistencia">
+              <i class="fa fa-money"></i> <span>Asistencia</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li class="header" style="color:white;">Informaci&oacute;n de Usuarios</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-cogs"></i> <span>Configuraci&oacute;n</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=11"><i class="fa fa-cog"></i> Usuarios</a></li>
+              <li><a href="#M_Perfil" data-toggle="modal"><i class="fa fa-user"></i> Pefil</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="http://localhost/kanako/" target="_blank">
+              <i class="fa fa-money"></i> <span>Factura</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="../auth/logout.php">
+              <i class="fa fa-sign-out"></i> <span>Salir</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
       </section>
       <!-- /.sidebar -->
     </aside>
@@ -221,10 +232,14 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          <?php if ($titpant =='') { echo '&nbsp'; } else{ echo $titpant; }    ?>
-       </h1>
-       <ol class="breadcrumb">
-         <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-         <li class="active"><?=$detpant;?></li>
-       </ol>
+          <?php if ($titpant == '') {
+            echo '&nbsp';
+          } else {
+            echo $titpant;
+          }    ?>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+          <li class="active"><?= $detpant; ?></li>
+        </ol>
       </section>

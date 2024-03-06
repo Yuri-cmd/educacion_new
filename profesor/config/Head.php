@@ -1,5 +1,19 @@
+<?php
+
+include 'utils/phpqrcode/qrlib.php';
+// Configura los parámetros del código QR
+$tamaño = 10; // Tamaño del código QR (en píxeles)
+$level = 'M'; // Nivel de corrección de errores (L - bajo, M - medio, Q - alto, H - más alto)
+
+// Genera el código QR
+ob_start(); // Inicia el almacenamiento en el búfer de salida
+QRcode::png($_SESSION['docente_id'], null, $level, $tamaño); // Genera el código QR y lo envía al búfer de salida
+$imageData = ob_get_clean();
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +33,10 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../assets2/dist/css/skins/skin-green.css">
   <!-- alert toast -->
-   <link href="../assets2/bower_components/toast/toastr.css" rel="stylesheet" type="text/css" />
+  <link href="../assets2/bower_components/toast/toastr.css" rel="stylesheet" type="text/css" />
   <!-- inputfile -->
-   <link href="../assets2/bower_components/inputfile/bootstrap-iso.css" rel="stylesheet" />
-   <!-- Select2 -->
+  <link href="../assets2/bower_components/inputfile/bootstrap-iso.css" rel="stylesheet" />
+  <!-- Select2 -->
   <link rel="stylesheet" href="../assets2/bower_components/select2/select2.min.css">
   <!-- Date Picker -->
   <link rel="stylesheet" href="../assets2/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
@@ -44,6 +58,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="dist/css/italic.css">
 </head>
+
 <body class="hold-transition skin-green sidebar-mini">
   <div class="wrapper">
     <header class="main-header">
@@ -66,9 +81,9 @@
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
 
-            <a href="#M_Perfil" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-gears"></i><span class="hidden-xs"><?='Profesor : '.$us_nomape; ?></span>
-            </a>
+              <a href="#M_Perfil" data-toggle="modal" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-gears"></i><span class="hidden-xs"><?= 'Profesor : ' . $us_nomape; ?></span>
+              </a>
             </li>
           </ul>
         </div>
@@ -80,107 +95,162 @@
       <section class="sidebar">
         <!-- /.search form -->
         <div class="user-panel">
-        <div class="pull-left image">
-          <img src="../assets2/dist/img/avatar3.png" class="img-circle" alt="User Image">
+          <div class="pull-left image">
+            <img src="../assets2/dist/img/avatar3.png" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Profesor(a)</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
         </div>
-        <div class="pull-left info">
-          <p>Profesor(a)</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-       <li class="header" style="color:white;">Formaci&oacute;n Acad&eacute;mica</li>
-       <li class="treeview">
-         <a href="index.php">
-           <i class="fa fa-desktop"></i> <span>Clases</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="../profesores/cursos"><i class="fa fa-bars"></i>Contenido del Curso</a></li>
-          <!-- <li><a  href="index.php?menu="><i class="fa fa-bars"></i>Actividades / Tareas</a></li>
-           <li><a  href="index.php?menu="><i class="fa fa-bars"></i>Horario</a></li> -->
-          </ul>
-       </li>
+          <li class="header" style="color:white;">Formaci&oacute;n Acad&eacute;mica</li>
 
-       <li class="header" style="color:white;">Gesti&oacute;n del Alumno</li>
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-user-plus"></i> <span>Alumnos</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-           <li><a  href="index.php?menu=3"><i class="fa fa-vcard-o"></i>Secciones / Grados</a></li>
-         </ul>
-       </li>
-       <li class="header" style="color:white;">Informaci&oacute;n del Colegio</li>
-       <li>
-         <a href="index.php?menu=1">
-           <i class="fa fa-edit"></i> <span>Noticias</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-       </li>
-       <li class="treeview">
-          <a href="#">
-            <i class="fa fa-envelope-open-o"></i> <span>Notificaciones</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-             <li><a  href="../profesores/mensajes"><i class="fa fa-bars"></i>Inbox</a></li>
-           </ul>
-        </li>
-        <?php if ($psicol =='SI'): ?>
+          <li class="treeview">
+            <a href="index.php">
+              <i class="fa fa-envelope-open-o"></i> <span>QR</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li>
+                <a href="#" onclick="abrirModal()">
+                  <?= '<img src="data:image/png;base64,' . base64_encode($imageData) . '" style="width: 100%;" alt="Código QR">'; ?>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="index.php">
+              <i class="fa fa-desktop"></i> <span>Clases</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="../profesores/cursos"><i class="fa fa-bars"></i>Contenido del Curso</a></li>
+              <!-- <li><a  href="index.php?menu="><i class="fa fa-bars"></i>Actividades / Tareas</a></li>
+           <li><a  href="index.php?menu="><i class="fa fa-bars"></i>Horario</a></li> -->
+            </ul>
+          </li>
+
+          <li class="header" style="color:white;">Gesti&oacute;n del Alumno</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-user-plus"></i> <span>Alumnos</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?menu=3"><i class="fa fa-vcard-o"></i>Secciones / Grados</a></li>
+            </ul>
+          </li>
+          <li class="header" style="color:white;">Informaci&oacute;n del Colegio</li>
           <li>
-            <a href="index.php?menu=2">
-              <i class="fa fa-edit"></i> <span>Blog</span>
+            <a href="index.php?menu=1">
+              <i class="fa fa-edit"></i> <span>Noticias</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
           </li>
-        <?php endif; ?>
-       <li class="header" style="color:white;">Informaci&oacute;n de Usuarios</li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-envelope-open-o"></i> <span>Notificaciones</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="../profesores/mensajes"><i class="fa fa-bars"></i>Inbox</a></li>
+            </ul>
+          </li>
+          <?php if ($psicol == 'SI') : ?>
+            <li>
+              <a href="index.php?menu=2">
+                <i class="fa fa-edit"></i> <span>Blog</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+            </li>
+          <?php endif; ?>
+          <li class="header" style="color:white;">Informaci&oacute;n de Usuarios</li>
 
-       <li class="treeview">
-         <a href="#">
-           <i class="fa fa-cogs"></i> <span>Configuraci&oacute;n</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-         <ul class="treeview-menu">
-          <li><a href="#M_Perfil" data-toggle="modal"><i class="fa fa-user"></i> Pefil</a></li>
-         </ul>
-       </li>
-       <li>
-         <a href="../auth/logout.php">
-           <i class="fa fa-sign-out"></i> <span>Salir</span>
-           <span class="pull-right-container">
-             <i class="fa fa-angle-left pull-right"></i>
-           </span>
-         </a>
-       </li>
-     </ul>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-cogs"></i> <span>Configuraci&oacute;n</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#M_Perfil" data-toggle="modal"><i class="fa fa-user"></i> Pefil</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="../auth/logout.php">
+              <i class="fa fa-sign-out"></i> <span>Salir</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
       </section>
       <!-- /.sidebar -->
     </aside>
+    <div id="qrModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Código QR </h4>
+          </div>
+          <div class="modal-body">
+            <?= '<img id="qrImage" src="data:image/png;base64,' . base64_encode($imageData) . '" style="width: 100%;" alt="Código QR">'; ?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="imprimirQR()">Imprimir</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height: 850px;">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          <?php if ($titpant =='') { echo '&nbsp'; } else{ echo $titpant; }    ?>
-       </h1>
-       <ol class="breadcrumb">
-         <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-         <li class="active"><?=$detpant;?></li>
-       </ol>
+          <?php if ($titpant == '') {
+            echo '&nbsp';
+          } else {
+            echo $titpant;
+          }    ?>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+          <li class="active"><?= $detpant; ?></li>
+        </ol>
       </section>
+      <script>
+        function abrirModal() {
+          $('#qrModal').modal('show');
+        }
+
+        function imprimirQR() {
+          // Calcula el centro de la pantalla
+          var left = (screen.width / 2) - (400 / 2);
+          var top = (screen.height / 2) - (400 / 2);
+
+          // Crea una ventana emergente con la imagen del código QR
+          var ventanaQR = window.open('', '_blank', 'width=400,height=400,left=' + left + ',top=' + top);
+          ventanaQR.document.write('<img src="data:image/png;base64,' + '<?= base64_encode($imageData) ?>' + '">');
+          // Imprime la ventana emergente
+          ventanaQR.print();
+        }
+      </script>
